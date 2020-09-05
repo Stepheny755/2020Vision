@@ -20,8 +20,10 @@ def index():
     else:
         return render_template("index.html")
 
-@app.route("/messages",methods=['POST'])
-def receive_msg():
+@app.route("/postmethod",methods=['POST'])
+def get_js_data_post():
+    jsdata = request.form['javascript_data']
+    print(jsdata)
     #with open("file.wav","wb") as f:
         #f.write(request.data)
     print("msg written")

@@ -21,6 +21,11 @@ pauseButton.addEventListener("click", pauseRecording);
 function startRecording() {
     console.log("recordButton clicked");
 
+    var data = "hello"
+
+    $.post("/postmethod",{
+      javascript_data: data
+    })
     /*
         Simple constraints object, for more advanced audio features see
         https://addpipe.com/blog/audio-constraints-getusermedia/
@@ -84,16 +89,16 @@ function sendData(blob){
   var formData = new FormData();
   formData.append('file',blob,'filename');
 
-  $.ajax({
+  $.post({
       type: 'POST',
       url: 'ServerURL',
       data: form, // Our pretty new form
       cache: false,
       processData: false, // tell jQuery not to process the data
       contentType: false // tell jQuery not to set contentType
-    }).done(function(data) {
-      console.log(data);
-});
+      }).done(function(data) {
+        console.log(data);
+    });
 }
 
 function pauseRecording(){
