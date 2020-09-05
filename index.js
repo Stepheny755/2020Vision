@@ -6,9 +6,10 @@ var scoreButton = document.querySelector("#getScore");
 var resetButton = document.querySelector("#reset");
 
 var scoreDisplay = document.querySelector("#scoreDisplay");
-var score = 0; // would change this to whatever the actual score turns out to be based on back-end integration
+var score = 0;
 
 scoreButton.addEventListener("click", function(){
+    score = 1; // would change this to whatever the actual score turns out to be based on back-end integration
     scoreDisplay.textContent = score;
 })
 
