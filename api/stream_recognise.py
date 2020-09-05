@@ -29,5 +29,4 @@ def recogniseLetter(uri):
 
     for result in response.results:
         alternative = result.alternatives[0]
-        print(alternative.transcript)
         return alternative.transcript
