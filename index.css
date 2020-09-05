@@ -28,10 +28,23 @@ html {
 	color: #2fd07d;
 }
 
+.custom-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .custom-toggler.navbar-toggler {
+	border-color: black;
+  } 
+
 /* Header */
 #header {
-	height: 100vh;
-	background-color: #2fd07d;
+	height: 120vh;
+	background: url("header2.jpg") top right;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	position: relative;
 }
 
 .display-1 {
@@ -39,7 +52,7 @@ html {
 	padding-top: 3.5em;
 	font-style: italic;
 	font-weight: 400;
-	color: white;
+	color: black;
 	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
 				0px 8px 13px rgba(0, 0, 0, 0.1),
 				0px 18px 23px rgba(0, 0, 0, 0.1);
@@ -47,7 +60,7 @@ html {
 
 h3 {
 	text-align: center;
-	color: white;
+	color: black;
 	font-weight: 100;
 	font-style: italic;
 }
@@ -68,9 +81,18 @@ h3 {
 	padding: 0 7.0em 5.0em 7.0em;
 }
 
+/* How It Works */
+#how {
+	background: #d3d3d3;
+}
+
+.instructions {
+	text-align: center;
+}
+
 /* Try it out! */
 #trial {
-	background: #d3d3d3;
+	background: white;
 }
 
 img {
@@ -84,6 +106,7 @@ img {
 
 .buttons {
 	padding-top: 1.0em;
+	padding-bottom: 1.0em;
 }
 
 .score {
@@ -100,4 +123,10 @@ img {
 .copyright p {
 	text-align: center;
 	padding-top: 1.5%;
+}
+
+@media only screen and (min-width: 600px) {
+	.header {
+		width: 600px;
+	}
 }
