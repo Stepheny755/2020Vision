@@ -1,5 +1,6 @@
 from google.cloud import storage
 
+#Need to use actual inputs instead of placeholders
 def upload_file(source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""
     # bucket_name = "your-bucket-name"

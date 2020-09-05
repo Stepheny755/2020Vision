@@ -6,7 +6,7 @@ def recogniseLetter(uri):
 
     client = speech_v1p1beta1.SpeechClient()
     storageURI = uri
-    storageURI='gs://letter-clips/PMP3.mp3'
+    #storageURI='gs://letter-clips/PMP3.mp3'
 
 
     encoding = enums.RecognitionConfig.AudioEncoding.MP3
@@ -29,4 +29,5 @@ def recogniseLetter(uri):
 
     for result in response.results:
         alternative = result.alternatives[0]
-        return alternative.transcript
+        print("Identified letter is: " + str(alternative.transcript[0]))
+        return str(alternative.transcript[0])
