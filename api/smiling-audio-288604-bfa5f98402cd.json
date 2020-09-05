@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "smiling-audio-288604",
+  "private_key_id": "bfa5f98402cd88a31b546f3e18b3134b182b3775",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDkNb3rNI+e2MHx\n+58s7CeUO//7ASS0ulAhGMMoO3m/V8B5Rk8yFKIs5f0FY/2DIqaSAgkvocTyZ+hT\nq0sHuiDLMf5ZNJh0BLjrRxpQWnMteLyyJJndLNw6wNQ8E+snVA3yU9bI7PKX4tMc\nDROnzQRsK1frc1k3RIlaOWxfLlG6IL6NwbLHuML73rObBzn+sHzw4utyGvle5JfY\nnFoErH4MlfB+dFS58vM/+3rrJUcR3WXpOfomDmSePqd7h4YC8F3LaYTi62B8ChfT\njt1tG9JPlyF1+To/ddtgELT1jnDS8prptbbH+lzCZNgXLS+rtLpfcQiSmXQUbNBZ\nhZk+jblLAgMBAAECggEAAgzZb5I5dMW7D2hNUroFqOQXY0rWVlqS1L5Q+oX61dNf\n6HcClOcG1oeuMGHznMiy0q4t1JrjltaaXbG4hJVINHuUIBvWT+5Yh6IRhiLhM+bV\nheNizemd6w7OxTGwC4LG+fvrzsY91ftQSiheFsCMc070mu+P3f78OveW/F4XVT5L\nfIuT0uGnmjbl8uoB9T1KwaxewHKU9jq6UoTJ312R60P/zUdgXgfS0eoJiNT/FY2g\nQs2Y9hdadiNLm+wdYwDIhbNpMOeLSPZnlHLvoOBZ8XptYGpEf5SlzVq9F9MMbEV/\n6KaAXkuvLTGiKLcuZLR8xzGbp+tR3N+7fXBnp6xFWQKBgQD/0XMkDOxz7LRWen0g\nwPhiYR7MeUoo4cnunUkJXW0QD6QHGiQqFwlOWlTOWUqZ9rUr7+/1MrszT3K3Bhm4\nuXz8ZNtkV+xX98xSLmeDYsoKkSH/rKwvY3AwyoHuw7SWAtQxM4E+YCCBqvHP4arf\nZBwwbY/Y+WLNRGt0OicmKEZz7wKBgQDkX0Sx3G4hktR5lS9kXfwVfuPs3/Yaou4r\nqkBmEMy0P9Dpa4ckmITFxT1RkPcGSZ7r9RPCRm8266rxLxktz9FuD2/pa/q9T7DC\nWsbXYfKJirEC+9sJiLmLv98H3bxUYa/+aVbyxettgw1+q/aOvfn1+hW2pJQhOyr6\n41MkGvHEZQKBgQCxxvSlUPXhedW5Y1YhtPjoJWYp4wBOeNrEIDnpcCuixbvP07Le\nLTQiZ1QYMqVNac1tw0iWtbKybbvixTKK1Ryuqchta0yrtWEgm28EN1sBDOr7qxvd\nstT8kz7Iluigd0bPCmP+3P66Hfn95W3B4OhWH02gE28+BxZFp0QdmE+dsQKBgQDf\n3dQFVsRO/RR0Kx5OESOwHrdn2RPzgIxhGYAPjaBdgcFVUCcmZKyjAnrdnnHJJBo5\nzAEWjN0wxUzJKRZRpkryzQczlroxIhFwNHR/ZnDPC7oB5soNSo44xFnp6B9ZyHkx\nuCmXyxTCQZnU9tW3j9ucmQ73/9WFze6QCo/R8OfXUQKBgGcEVXpMuvvw5gKV4+V0\nlFCoqMtm5mhXjxKMoZBFtRnH3JfGjHQoboiil2CdJV0Fdm1ebUnVBNMk6Xp7w9uC\nVpPPLcaqdLq7AmvvXFfn9elBLe6yCijeUFQknVk9PGyG/eJhR0fbn70TXP10UPBA\nDIpd+FIHxF09evq09EWBpjOH\n-----END PRIVATE KEY-----\n",
+  "client_email": "speech-api@smiling-audio-288604.iam.gserviceaccount.com",
+  "client_id": "112431189412882933628",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/speech-api%40smiling-audio-288604.iam.gserviceaccount.com"
+}
