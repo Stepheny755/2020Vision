@@ -41,8 +41,8 @@ html {
 /* Header */
 #header {
 		top: 10%;
-		width: 100vw;
-		height: 120vh;
+		/*width: 100vw;*/
+		height: 125vh;
 		z-index: -1;
 		background-image: url("header2.jpg");
 		background-position: top;
