@@ -82,6 +82,10 @@ img {
 	padding-bottom: 2.0em;
 }
 
+.score {
+	text-align: center;
+}
+
 /* Footer */
 #footer {
 	background: #2fd07d;
