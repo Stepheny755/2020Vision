@@ -80,6 +80,10 @@ function startRecording() {
     });
 }
 
+function sendData(blob){
+  fetch("/messages",{method:"post",body:blob});
+}
+
 function pauseRecording(){
     console.log("pauseButton clicked rec.recording=",rec.recording );
     if (rec.recording){
@@ -112,7 +116,7 @@ function stopRecording() {
     gumStream.getAudioTracks()[0].stop();
 
     //create the wav blob and pass it on to createDownloadLink
-    rec.exportWAV(createDownloadLink);
+    rec.exportWAV(sendData);
 }
 
 function createDownloadLink(blob) {

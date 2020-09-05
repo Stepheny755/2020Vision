@@ -20,6 +20,12 @@ def index():
     else:
         return render_template("index.html")
 
+@app.route("/messages",methods=['POST'])
+def receive_msg():
+    with open("file.wav","wb") as f:
+        f.write(request.data)
+    print("msg written")
+    return
 
 if __name__ == "__main__":
     app.run(debug=True)
