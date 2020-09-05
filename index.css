@@ -42,7 +42,7 @@ html {
 /* Header */
 #header {
 		top: 10%;
-		width: 100%;
+		width: 100vw;
 		height: 120vh;
 		z-index: -1;
 		background-image: url("header2.jpg");
