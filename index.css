@@ -90,6 +90,8 @@ h3 {
 
 .instructions {
 	text-align: center;
+	list-style-position: inside;
+	padding-bottom: 1.0em;
 }
 
 /* Try it out! */
