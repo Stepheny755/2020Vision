@@ -82,6 +82,10 @@ img {
 	padding-bottom: 2.0em;
 }
 
+.buttons {
+	padding-top: 1.0em;
+}
+
 .score {
 	text-align: center;
 }
