@@ -13,9 +13,7 @@ html {
 
 .navbar-brand, .navbar-text {
 	color: white;
-	margin-top:		0.5em;
-	margin-bottom:	0.5em;
-	font-size:		1.5em;
+	font-size: 1.15rem;
 }
 
 .navbar.scrolled {
@@ -41,7 +39,6 @@ html {
 /* Header */
 #header {
 		top: 10%;
-		/*width: 100vw;*/
 		height: 125vh;
 		z-index: -1;
 		background-image: url("header2.jpg");
@@ -49,9 +46,9 @@ html {
 		background-size: cover;
 }
 
-.display-1 {
+.heading {
 	text-align: center;
-	padding-top: 3.5em;
+	padding-top: 3.15em;
 	font-style: italic;
 	font-weight: 400;
 	color: black;
@@ -113,6 +110,10 @@ img {
 	padding-bottom: 1.0em;
 }
 
+.btn {
+	margin-left: 0.25em;
+}
+
 .score {
 	text-align: center;
 	padding-top:	0em;
@@ -130,4 +131,14 @@ img {
 	text-align: center;
 	padding-top: 1.5%;
 	color: white;
+}
+
+@media only screen and (max-width: 600px) {
+	.heading {
+		padding-top: 2.15em;
+	}
+	#how .sub-heading {
+		padding-left: 0.15em;
+		padding-right: 0.15em;
+	}
 }
