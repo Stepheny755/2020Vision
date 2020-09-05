@@ -8,35 +8,34 @@ html {
 
  /* Navbar */
 .navbar-custom {
-	background-color: white;
+	background-color: black;
 }
 
 .navbar-brand, .navbar-text {
-	color: black;
+	color: white;
 	margin-top:		0.5em;
 	margin-bottom:	0.5em;
 	font-size:		1.5em;
 }
 
 .navbar.scrolled {
-	background: #2fd07d;
 	transition: background 200ms;
 }
 
 .navbar-brand:hover {
-	color: #2fd07d;
+	color: #ADD8E6;;
 }
 
 .nav-link:hover {
-	color: #2fd07d;
+	color: #ADD8E6;
 }
 
 .custom-toggler .navbar-toggler-icon {
-	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   }
   
   .custom-toggler.navbar-toggler {
-	border-color: black;
+	border-color: white;
   } 
 
 /* Header */
@@ -120,7 +119,7 @@ img {
 
 /* Footer */
 #footer {
-	background: #2fd07d;
+	background: black;
 	width: auto;
 	height: 75px;
 }
@@ -128,10 +127,5 @@ img {
 .copyright p {
 	text-align: center;
 	padding-top: 1.5%;
-}
-
-@media only screen and (min-width: 600px) {
-	.header {
-		width: 600px;
-	}
+	color: white;
 }
