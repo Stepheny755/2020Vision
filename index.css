@@ -53,15 +53,14 @@ h3 {
 }
 
 /* About */
-h2 {
-	text-align: center;
-	padding: 1.5em 2em 0.5em 1.30em;
-}
 
-.display-2 {
-	font-family: 'Poppins';
+.sub-heading {
+	font-size: 5rem;
 	font-weight: 200;
 	font-style: normal;
+	text-align: center;
+	padding-top: 2.0em;
+	padding-bottom: 0.75em;
 }
 
 .content {
