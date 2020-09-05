@@ -47,10 +47,11 @@ function start(){
 function next(){
   recording.stop();
   recording.exportWAV(send_data);
+  recording.record();
 }
 
 function pause(){
-  console.log("pause clicked. temporarily halting recordings=",rec.recording);
+  console.log("pause clicked. temporarily halting recordings=",recording.recording);
   if(recording.recording){
     recording.stop();
     pause_button.innerHTML="Resume";
@@ -62,26 +63,18 @@ function pause(){
 
 function stop(){
   console.log("stop clicked. stopping recording");
+  start_button.disabled = false;
   stop_button.disabled = true;
-  record_button.disabled = false;
-  pause_button.disabled = false;
+  next_button.disabled = true;
+  pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  rec.stop();
+  recording.stop();
   gum_stream.getAudioTracks()[0].stop();
 }
 
 function send_data(blob) {
   var form_data = new FormData();
-  form_data.append('file',blob);
-
-  console.log("sending data");
-  $.post("/postmethod",{
-    js_data:blob
-  });
-}
-function send_data(blob) {
-  var form_data = new FormData();
-  form_data.append('file',blob);
+  form_data.append('blob',blob);
 
   console.log("sending data");
   $.ajax({
