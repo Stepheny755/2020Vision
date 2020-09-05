@@ -1,22 +1,98 @@
-//webkitURL is deprecated but nevertheless
 URL = window.URL || window.webkitURL;
 
-var gumStream;                      //stream from getUserMedia()
-var rec;                            //Recorder.js object
-var input;                          //MediaStreamAudioSourceNode we'll be recording
+var gum_stream;
+var recording;
+var input;
 
-// shim for AudioContext when it's not avb.
+var channels = 1;
+var sample_num = 0;
+
 var AudioContext = window.AudioContext || window.webkitAudioContext;
-var audioContext //audio context to help us record
+var audioContext
 
-var recordButton = document.getElementById("recordButton");
-var stopButton = document.getElementById("stopButton");
-var pauseButton = document.getElementById("pauseButton");
+var start_button = document.getElementById("exam_start");
+var next_button = document.getElementById("exam_next");
+var pause_button = document.getElementById("exam_pause");
+var stop_button = document.getElementById("exam_stop")
 
-//add events to those 2 buttons
-recordButton.addEventListener("click", startRecording);
-stopButton.addEventListener("click", stopRecording);
-pauseButton.addEventListener("click", pauseRecording);
+start_button.addEventListener("click",start);
+next_button.addEventListener("click",next);
+pause_button.addEventListener("click",pause);
+stop_button.addEventListener("click",stop);
+
+function start(){
+  console.log("initializing recording");
+  var constraints = { audio: true, video:false };
+  start_button.disabled = true;
+  next_button.disabled = false;
+  pause_button.disabled = false;
+  stop_button.disabled = false;
+  navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
+      console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
+      audioContext = new AudioContext();
+      console.log("format: "+channels+" channel pcm @ "+audioContext.sampleRate/1000+"kHz");
+      gum_stream = stream;
+      input = audioContext.createMediaStreamSource(stream);
+      recording = new Recorder(input,{numChannels:channels});
+      recording.record();
+      console.log("start sample "+sample_num);
+  }).catch(function(err) {
+      start_button.disabled = false;
+      next_button.disabled = true;
+      pause_button.disabled = true;
+      stop_button.disabled = true;
+  });
+}
+
+function next(){
+  recording.stop();
+  recording.exportWAV(send_data);
+}
+
+function pause(){
+  console.log("pause clicked. temporarily halting recordings=",rec.recording);
+  if(recording.recording){
+    recording.stop();
+    pause_button.innerHTML="Resume";
+  }else{
+    recording.record();
+    pause_button.innerHTML="Pause";
+  }
+}
+
+function stop(){
+  console.log("stop clicked. stopping recording");
+  stop_button.disabled = true;
+  record_button.disabled = false;
+  pause_button.disabled = false;
+  pause_button.innerHTML = "Pause";
+  rec.stop();
+  gum_stream.getAudioTracks()[0].stop();
+}
+
+function send_data(blob) {
+  var form_data = new FormData();
+  form_data.append('file',blob);
+
+  console.log("sending data");
+  $.post("/postmethod",{
+    js_data:blob
+  });
+}
+function send_data(blob) {
+  var form_data = new FormData();
+  form_data.append('file',blob);
+
+  console.log("sending data");
+  $.ajax({
+    url:"/postmethod",
+    type:"POST",
+    data:form_data,
+    success: function(data){
+      alert(data);
+    }
+  });
+}
 
 function startRecording() {
     console.log("recordButton clicked");
@@ -60,8 +136,8 @@ function startRecording() {
         //update the format
         document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
 
-        /*  assign to gumStream for later use  */
-        gumStream = stream;
+        /*  assign to gum_stream for later use  */
+        gum_stream = stream;
 
         /* use the stream */
         input = audioContext.createMediaStreamSource(stream);
@@ -130,7 +206,7 @@ function stopRecording() {
     rec.stop();
 
     //stop microphone access
-    gumStream.getAudioTracks()[0].stop();
+    gum_stream.getAudioTracks()[0].stop();
 
     //create the wav blob and pass it on to
     rec.exportWAV(sendData);

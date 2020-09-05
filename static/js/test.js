@@ -5,7 +5,9 @@ testButton.addEventListener("click",getData);
 function getData() {
   console.log("button clicked");
   var outputData = "test";
-  $.post("/postmethod",{
-    js_data:JSON.stringify(outputData)
+  $.ajax({
+    url: "/postmethod",
+    type: "POST",
+    data:JSON.stringify(outputData)
   });
 }
