@@ -22,8 +22,8 @@ def index():
 
 @app.route("/messages",methods=['POST'])
 def receive_msg():
-    with open("file.wav","wb") as f:
-        f.write(request.data)
+    #with open("file.wav","wb") as f:
+        #f.write(request.data)
     print("msg written")
     return
 
