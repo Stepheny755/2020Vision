@@ -16,31 +16,81 @@ html {
 }
 
 .navbar.scrolled {
-	background: green;
+	background: #2fd07d;
 	transition: background 200ms;
 }
 
 .navbar-brand:hover {
-	color: green;
+	color: #2fd07d;
 }
 
 .nav-link:hover {
-	color: green;
+	color: #2fd07d;
 }
 
 /* Header */
 #header {
 	height: 100vh;
-	background-color: green;
+	background-color: #2fd07d;
 }
 
 .display-1 {
 	text-align: center;
-	padding-top: 3em;
+	padding-top: 3.5em;
 	font-style: italic;
-	font-weight: 200;
+	font-weight: 400;
 	color: white;
 	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
 				0px 8px 13px rgba(0, 0, 0, 0.1),
 				0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+	text-align: center;
+	color: white;
+	font-weight: 100;
+	font-style: italic;
+}
+
+/* About */
+h2 {
+	text-align: center;
+	padding: 1.5em 2em 0.5em 1.30em;
+}
+
+.display-2 {
+	font-family: 'Poppins';
+	font-weight: 200;
+	font-style: normal;
+}
+
+.content {
+	text-align: center;
+	padding: 0 7.0em 5.0em 7.0em;
+}
+
+/* Try it out! */
+#trial {
+	background: #d3d3d3;
+}
+
+img {
+	width: 60%;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 2.0em;
+}
+
+/* Footer */
+#footer {
+	background: #2fd07d;
+	width: auto;
+	height: 75px;
+}
+
+.copyright p {
+	text-align: center;
+	padding-top: 1.5%;
 }
