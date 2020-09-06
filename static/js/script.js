@@ -24,6 +24,12 @@ function start(){
   start_button.disabled = true;
   pause_button.disabled = false;
   stop_button.disabled = false;
+  $.ajax({
+    url:"/postmethod",
+    type:"POST",
+    processData:false,
+    data:'reset'
+  });
   navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
       console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
       audioContext = new AudioContext();
@@ -62,6 +68,7 @@ function stop(){
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
+  recording.exportWAV(send_data);
   stop_recording();
 }
 
@@ -86,10 +93,7 @@ function send_data(blob) {
     processData: false,
     ContentType: false,
     data:form_data,
-    dataType:'script',
-    success: function(data){
-      alert(data);
-    }
+    dataType:'script'
   });
 }
 
