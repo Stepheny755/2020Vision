@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, jsonify, redirect, request, render_template, make_response
-import os
+import os, pickle
 
 app = Flask(__name__)
 app.debug = True
