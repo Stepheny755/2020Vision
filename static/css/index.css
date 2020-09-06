@@ -121,6 +121,10 @@ img {
 	padding-bottom:	3.0em;
 }
 
+.timer {
+	padding-top: 1.0em;
+}
+
 /* Footer */
 #footer {
 	background: black;
@@ -136,6 +140,7 @@ img {
 
 .github-logo {
 	text-align: center;
+	height: 50px;
 }
 
 @media only screen and (max-width: 750px) {
