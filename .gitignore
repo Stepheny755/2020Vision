@@ -5,3 +5,4 @@ node_modules/
 .DS_store
 imgs/
 header.jpg
+test.js
