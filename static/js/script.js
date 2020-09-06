@@ -63,9 +63,9 @@ function playSound() {
   audio.play();
 }
 
-function clear() {
-  sound_obj.clear = clearInterval(sound_obj.play_sound);
-}
+// function clear() {
+//   sound_obj.clear = clearInterval(sound_obj.play_sound);
+// }
 
 function pause(){
   console.log("pause clicked. recording halted=",recording.recording);
@@ -84,7 +84,7 @@ function stop(){
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  clear();
+  sound_obj.clear = clearInterval(sound_obj.play_sound);
   stop_recording();
 }
 
