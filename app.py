@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, jsonify, redirect, request, render_template, make_response
-import os, pickle
+import os, pickle, json
 
 app = Flask(__name__)
 app.debug = True
@@ -10,8 +10,9 @@ class track():
     def __init__(self,audio_path):
         self.value = 0
         self.audio_path = audio_path
-        self.ext = ".mp3"
+        self.ext = ".wav"
         self.create_path_with_check()
+        self.clear_audio_dir()
 
     def create_path_with_check(self):
         if not os.path.exists(self.audio_path):
@@ -23,11 +24,14 @@ class track():
             os.remove(os.path.join(self.audio_path, f))
         pass
 
-    def save_audio(self,data,name):
+    def save_audio_name(self,data,name):
         complete_path = os.path.join(self.audio_path,name)+self.ext
         with open(complete_path,"wb") as f:
             f.write(data)
         pass
+
+    def save_audio(self,data):
+        self.save_audio_name(data,str(self.value))
 
     def increment_value(self):
         self.value = self.value + 1
@@ -43,18 +47,20 @@ t = track("audio")
 def index():
     return render_template('layouts/index.html')
 
+#re-init exam
 @app.route("/reinit",methods=['POST'])
 def init():
     t = track("audio")
-    return
+    print("starting new exam...")
+    return jsonify(t.get_value())
 
-
+#audio data
 @app.route("/postmethod",methods=['POST'])
 def post_js_data():
-    jsdata = request.form
+    jsdata = request.form.to_dict()
+    print(jsdata)
+    t.save_audio(json.dumps(jsdata))#.encode('utf-8'))
     t.increment_value()
-    with open("file.wav","wb") as f:
-        f.write(request.data)
     print("msg received")
     return "1"
 
