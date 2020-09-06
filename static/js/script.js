@@ -32,10 +32,10 @@ function start(){
       console.log("format: "+channels+" channel pcm @ "+audioContext.sampleRate/1000+"kHz");
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
-      start_recording();
-      console.log("start sample "+sample_num);
       var sound_repeat = setInterval(next, 5000);
       sound_obj.play_sound = sound_repeat;
+      start_recording();
+      console.log("start sample "+sample_num);
 
 
   }).catch(function(err) {
