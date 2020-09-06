@@ -14,6 +14,8 @@ var start_button = document.getElementById("start");
 var pause_button = document.getElementById("pause");
 var stop_button = document.getElementById("end")
 
+var sound_obj = {};
+
 start_button.addEventListener("click",start);
 pause_button.addEventListener("click",pause);
 stop_button.addEventListener("click",stop);
@@ -32,6 +34,10 @@ function start(){
       input = audioContext.createMediaStreamSource(stream);
       start_recording();
       console.log("start sample "+sample_num);
+      var sound_repeat = setInterval(next, 5000);
+      sound_obj.play_sound = sound_repeat;
+
+
   }).catch(function(err) {
       start_button.disabled = false;
       pause_button.disabled = true;
@@ -43,6 +49,7 @@ function next(){
   stop_recording();
   recording.exportWAV(send_data);
   start_recording();
+  playSound();
 }
 
 function playSound() {
@@ -50,8 +57,9 @@ function playSound() {
   audio.play();
 }
 
-sound = setInterval(playSound, 5000);
-clearInterval(sound);
+function clear() {
+  sound_obj.clear = clearInterval(play_sound);
+}
 
 function pause(){
   console.log("pause clicked. recording halted=",recording.recording);
