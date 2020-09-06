@@ -161,22 +161,25 @@ function createDownloadLink(blob) {
 }
 
 
-window.onload = function() {
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  setInterval(function () {
+      minutes = parseInt(timer / 60, 10);
+      seconds = parseInt(timer % 60, 10);
 
-  var display = document.querySelector('#time'),
-      timer = new CountDownTimer(5);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
 
-  timer.onTick(format).onTick(restart).start();
+      display.textContent = minutes + ":" + seconds;
 
-  function restart() {
-    if (this.expired()) {
-      setTimeout(function() { timer.start(); }, 5000);
-    }
-  }
+      if (--timer < 0) {
+          timer = duration;
+      }
+  }, 1000);
+}
 
-  function format(minutes, seconds) {
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    display.textContent = minutes + ':' + seconds;
-  }
+window.onload = function () {
+  var fiveSeconds = 5,
+      display = document.querySelector('#time');
+  startTimer(fiveSeconds, display);
 };
