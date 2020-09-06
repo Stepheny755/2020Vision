@@ -159,3 +159,24 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
+
+window.onload = function() {
+
+  var display = document.querySelector('#time'),
+      timer = new CountDownTimer(5);
+
+  timer.onTick(format).onTick(restart).start();
+
+  function restart() {
+    if (this.expired()) {
+      setTimeout(function() { timer.start(); }, 5000);
+    }
+  }
+
+  function format(minutes, seconds) {
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+    display.textContent = minutes + ':' + seconds;
+  }
+};
