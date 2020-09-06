@@ -25,7 +25,7 @@ function start(){
   pause_button.disabled = false;
   stop_button.disabled = false;
   $.ajax({
-    url:"/postmethod",
+    url:"/reinit",
     type:"POST",
     processData:false,
     data:'reset'
