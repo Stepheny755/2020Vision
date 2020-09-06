@@ -6,9 +6,10 @@ import os, pickle
 app = Flask(__name__)
 app.debug = True
 
+#landing
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    return render_template('layouts/exam.html')
+    return render_template('layouts/index.html')
 
 #@app.route()
 
