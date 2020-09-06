@@ -10,13 +10,11 @@ var sample_num = 0;
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext
 
-var start_button = document.getElementById("exam_start");
-var next_button = document.getElementById("exam_next");
-var pause_button = document.getElementById("exam_pause");
-var stop_button = document.getElementById("exam_stop")
+var start_button = document.getElementById("start");
+var pause_button = document.getElementById("pause");
+var stop_button = document.getElementById("end")
 
 start_button.addEventListener("click",start);
-next_button.addEventListener("click",next);
 pause_button.addEventListener("click",pause);
 stop_button.addEventListener("click",stop);
 
@@ -24,7 +22,6 @@ function start(){
   console.log("initializing recording");
   var constraints = { audio: true, video:false };
   start_button.disabled = true;
-  next_button.disabled = false;
   pause_button.disabled = false;
   stop_button.disabled = false;
   navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
@@ -37,7 +34,6 @@ function start(){
       console.log("start sample "+sample_num);
   }).catch(function(err) {
       start_button.disabled = false;
-      next_button.disabled = true;
       pause_button.disabled = true;
       stop_button.disabled = true;
   });
@@ -50,7 +46,7 @@ function next(){
 }
 
 function pause(){
-  console.log("pause clicked. temporarily halting recordings=",recording.recording);
+  console.log("pause clicked. recording halted=",recording.recording);
   if(recording.recording){
     recording.stop();
     pause_button.innerHTML="Resume";
@@ -64,7 +60,6 @@ function stop(){
   console.log("stop clicked. stopping recording");
   start_button.disabled = false;
   stop_button.disabled = true;
-  next_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
   stop_recording();
