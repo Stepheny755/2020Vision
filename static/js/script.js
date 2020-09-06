@@ -24,16 +24,16 @@ function start(){
   start_button.disabled = true;
   pause_button.disabled = false;
   stop_button.disabled = false;
-  $.ajax({
-    url:"/reinit",
-    type:"POST",
-    processData:false,
-    data:'reset'
-  });
   navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
       console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
       audioContext = new AudioContext();
       console.log("format: "+channels+" channel pcm @ "+audioContext.sampleRate/1000+"kHz");
+      $.ajax({
+        url:"/reinit",
+        type:"POST",
+        processData:false,
+        data:audioContext.sampleRate
+      });
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
       start_recording();
