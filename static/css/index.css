@@ -140,6 +140,9 @@ img {
 
 .github-logo {
 	text-align: center;
+}
+
+.github-logo img {
 	height: 50px;
 }
 
