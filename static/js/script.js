@@ -103,10 +103,7 @@ function send_data(blob) {
     processData: false,
     ContentType: false,
     data:form_data,
-    dataType:'script',
-    success: function(data){
-      alert(data);
-    }
+    dataType:'script'
   });
 }
 
