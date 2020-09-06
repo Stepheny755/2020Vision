@@ -1,0 +1,6 @@
+google-cloud-speech
+google-cloud-storage
+wheel
+flask
+gunicorn
+pyaudio
