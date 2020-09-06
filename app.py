@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, jsonify, redirect, request, render_template, make_response
-import os, pickle, json
+import os, pickle, json, struct
+from api.middleware import upload_file
 
 app = Flask(__name__)
 app.debug = True
@@ -53,19 +54,19 @@ def index():
 @app.route("/reinit",methods=['POST'])
 def init():
     jsdata = request.form.to_dict()
-    t = track("audio",int(list(jsdata.keys())[0]))
-    print("starting new exam...")
+    target_sr = int(list(jsdata.keys())[0])
+    t = track("audio",target_sr)
+    print("starting new exam with sample rate "+str(target_sr))
     return jsonify(t.get_value())
 
 #audio data
 @app.route("/postmethod",methods=['POST'])
 def post_js_data():
     jsdata = request.form.to_dict()
-    print(jsdata)
-    t.save_audio(json.dumps(jsdata))#.encode('utf-8'))
+    format_url = list(jsdata.keys())[0].replace("blob:","")
+    upload_file(format_url,t.get_value())
     t.increment_value()
-    print("msg received")
-    return "1"
+    return jsonify(t.get_value())
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5000)

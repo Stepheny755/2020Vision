@@ -83,16 +83,14 @@ function stop_recording(){
 }
 
 function send_data(blob) {
-  var form_data = new FormData();
-  form_data.append('audio_data',blob);
-  console.log(blob)
+  var url = URL.createObjectURL(blob);
   console.log("sending data");
   $.ajax({
     url:"/postmethod",
     type:"POST",
     processData: false,
     ContentType: false,
-    data:blob,
+    data:url,
     dataType:'script'
   });
 }
