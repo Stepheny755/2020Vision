@@ -59,6 +59,12 @@ def init():
     print("starting new exam with sample rate "+str(target_sr))
     return jsonify(t.get_value())
 
+#favicon
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')
+
 #audio data
 @app.route("/postmethod",methods=['POST'])
 def post_js_data():
