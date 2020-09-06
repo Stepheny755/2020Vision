@@ -1,4 +1,7 @@
 venv/
 env/*
 api/__pycache__
-
+node_modules/
+.DS_store
+imgs/
+header.jpg

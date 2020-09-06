@@ -1,0 +1,162 @@
+html {
+	scroll-behavior: smooth;
+}
+
+ body {
+	font-family: 'Poppins', sans-serif;
+ }
+
+ /* Navbar */
+.navbar-custom {
+	background-color: black;
+}
+
+.navbar-brand, .navbar-text {
+	color: white;
+	font-size: 1.15rem;
+}
+
+.navbar.scrolled {
+	transition: background 200ms;
+}
+
+.navbar-brand:hover {
+	color: #ADD8E6;;
+}
+
+.nav-link:hover {
+	color: #ADD8E6;
+}
+
+.custom-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .custom-toggler.navbar-toggler {
+	border-color: white;
+  } 
+
+/* Header */
+#header {
+		top: 10%;
+		height: 125vh;
+		z-index: -1;
+		background-image: url("header2.jpg");
+		background-position: top;
+		background-size: cover;
+}
+
+.heading {
+	text-align: center;
+	padding-top: 3.15em;
+	font-style: italic;
+	font-weight: 400;
+	color: black;
+	text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+				0px 8px 13px rgba(0, 0, 0, 0.1),
+				0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+	text-align: center;
+	color: black;
+	font-weight: 100;
+	font-style: italic;
+}
+
+/* About */
+
+.sub-heading {
+	font-size: 5rem;
+	font-weight: 200;
+	font-style: normal;
+	text-align: center;
+	padding-top: 1.0em;
+	padding-bottom: 0.75em;
+}
+
+.content {
+	text-align: center;
+	padding: 0 7.0em 5.0em 7.0em;
+}
+
+/* How It Works */
+#how {
+	background: #d3d3d3;
+}
+
+.instructions {
+	text-align: center;
+	list-style-position: inside;
+	padding-bottom: 1.0em;
+}
+
+/* Try it out! */
+#trial {
+	background: white;
+}
+
+img {
+	width: 35%;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 4.0em;
+}
+
+.buttons {
+	padding-top: 1.0em;
+	padding-bottom: 1.0em;
+}
+
+.btn {
+	margin-left: 0.75em;
+	border-radius: 0px;
+	/* background: transparent; */
+}
+
+.btn-primary {
+	/* color: #0275d8; */
+}
+
+.btn-danger {
+	/* color: #d9534f; */
+}
+
+.btn-success {
+	/* color: #5cb85c; */
+}
+
+.btn-secondary{
+	/* color: #292b2c; */
+}
+
+.score {
+	text-align: center;
+	padding-top:	0em;
+	padding-bottom:	3.0em;
+}
+
+/* Footer */
+#footer {
+	background: black;
+	width: auto;
+	height: 75px;
+}
+
+.copyright p {
+	text-align: center;
+	padding-top: 1.5%;
+	color: white;
+}
+
+@media only screen and (max-width: 750px) {
+	.heading {
+		padding-top: 2.15em;
+	}
+	#how .sub-heading {
+		padding-left: 0.15em;
+		padding-right: 0.15em;
+	}
+}
