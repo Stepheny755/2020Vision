@@ -63,12 +63,12 @@ function pause(){
 }
 
 function stop(){
-  console.log("stop clicked. stopping recording");
+  console.log("stopping recording");
   start_button.disabled = false;
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  recording.exportWAV(send_data);
+  recording.exportWAV(send_data);//REMOVE THIS LINE AFTER
   stop_recording();
 }
 
@@ -85,14 +85,14 @@ function stop_recording(){
 function send_data(blob) {
   var form_data = new FormData();
   form_data.append('audio_data',blob);
-
+  console.log(blob)
   console.log("sending data");
   $.ajax({
     url:"/postmethod",
     type:"POST",
     processData: false,
     ContentType: false,
-    data:form_data,
+    data:blob,
     dataType:'script'
   });
 }
