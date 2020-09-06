@@ -45,6 +45,14 @@ function next(){
   start_recording();
 }
 
+function playSound() {
+  const audio = new Audio("https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3");
+  audio.play();
+}
+
+sound = setInterval(playSound, 5000);
+clearInterval(sound);
+
 function pause(){
   console.log("pause clicked. recording halted=",recording.recording);
   if(recording.recording){
