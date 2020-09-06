@@ -2,7 +2,11 @@ venv/
 env/*
 api/__pycache__
 node_modules/
+audio/
 .DS_store
 imgs/
 header.jpg
+imgs/
+header.jpg
 test.js
+

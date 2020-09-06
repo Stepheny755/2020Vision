@@ -30,6 +30,12 @@ function start(){
       console.log("getUserMedia() success, stream created, initializing Recorder.js ...");
       audioContext = new AudioContext();
       console.log("format: "+channels+" channel pcm @ "+audioContext.sampleRate/1000+"kHz");
+      $.ajax({
+        url:"/reinit",
+        type:"POST",
+        processData:false,
+        data:audioContext.sampleRate
+      });
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
       var sound_repeat = setInterval(next, 5000);
@@ -73,7 +79,7 @@ function pause(){
 }
 
 function stop(){
-  console.log("stop clicked. stopping recording");
+  console.log("stopping recording");
   start_button.disabled = false;
   stop_button.disabled = true;
   pause_button.disabled = true;
@@ -93,16 +99,14 @@ function stop_recording(){
 }
 
 function send_data(blob) {
-  var form_data = new FormData();
-  form_data.append('audio_data',blob);
-
+  var url = URL.createObjectURL(blob);
   console.log("sending data");
   $.ajax({
     url:"/postmethod",
     method:"POST",
     processData: false,
-    contentType: false,
-    data: form_data,
+    ContentType: false,
+    data:url,
     dataType:'script'
   });
 }
