@@ -99,9 +99,9 @@ function send_data(blob) {
   console.log("sending data");
   $.ajax({
     url:"/postmethod",
-    type:"POST",
+    method:"POST",
     processData: false,
-    ContentType: false,
+    contentType: false,
     data:form_data,
     dataType:'script'
   });
