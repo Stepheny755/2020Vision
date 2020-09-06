@@ -98,11 +98,11 @@ function send_data(blob) {
 
   console.log("sending data");
   $.ajax({
-    url:"/postmethod",
+    url:"/",
     method:"POST",
     processData: false,
     contentType: false,
-    data:form_data,
+    data: form_data,
     dataType:'script'
   });
 }
