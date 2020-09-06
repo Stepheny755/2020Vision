@@ -53,6 +53,9 @@ def findItems():
 
 def runScoring():
     from google.cloud import storage
+    import os
+
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./smiling-audio-288604-bfa5f98402cd.json"
 
 
     itemList = findItems()

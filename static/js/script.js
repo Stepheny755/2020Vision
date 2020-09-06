@@ -14,6 +14,8 @@ var start_button = document.getElementById("start");
 var pause_button = document.getElementById("pause");
 var stop_button = document.getElementById("end")
 
+var sound_obj = {};
+
 start_button.addEventListener("click",start);
 pause_button.addEventListener("click",pause);
 stop_button.addEventListener("click",stop);
@@ -36,8 +38,12 @@ function start(){
       });
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
+      var sound_repeat = setInterval(next, 5000);
+      sound_obj.play_sound = sound_repeat;
       start_recording();
       console.log("start sample "+sample_num);
+
+
   }).catch(function(err) {
       start_button.disabled = false;
       pause_button.disabled = true;
@@ -49,6 +55,16 @@ function next(){
   stop_recording();
   recording.exportWAV(send_data);
   start_recording();
+  playSound();
+}
+
+function playSound() {
+  const audio = new Audio("https://media.geeksforgeeks.org/wp-content/uploads/20190531135120/beep.mp3");
+  audio.play();
+}
+
+function clear() {
+  sound_obj.clear = clearInterval(sound_obj.play_sound);
 }
 
 function pause(){
@@ -68,7 +84,7 @@ function stop(){
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  recording.exportWAV(send_data);//REMOVE THIS LINE AFTER
+  clear();
   stop_recording();
 }
 
@@ -87,7 +103,7 @@ function send_data(blob) {
   console.log("sending data");
   $.ajax({
     url:"/postmethod",
-    type:"POST",
+    method:"POST",
     processData: false,
     ContentType: false,
     data:url,
@@ -145,3 +161,27 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
+
+// function startTimer(duration, display) {
+//   var timer = duration, minutes, seconds;
+//   setInterval(function () {
+//       minutes = parseInt(timer / 60, 10);
+//       seconds = parseInt(timer % 60, 10);
+
+//       minutes = minutes < 10 ? "0" + minutes : minutes;
+//       seconds = seconds < 10 ? "0" + seconds : seconds;
+
+//       display.textContent = minutes + ":" + seconds;
+
+//       if (--timer < 0) {
+//           timer = duration;
+//       }
+//   }, 1000);
+// }
+
+// window.onload = function () {
+//   var fiveSeconds = 5,
+//       display = document.querySelector('#time');
+//   startTimer(fiveSeconds, display);
+// };

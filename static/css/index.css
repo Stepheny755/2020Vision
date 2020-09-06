@@ -113,29 +113,16 @@ img {
 .btn {
 	margin-left: 0.75em;
 	border-radius: 0px;
-	/* background: transparent; */
-}
-
-.btn-primary {
-	/* color: #0275d8; */
-}
-
-.btn-danger {
-	/* color: #d9534f; */
-}
-
-.btn-success {
-	/* color: #5cb85c; */
-}
-
-.btn-secondary{
-	/* color: #292b2c; */
 }
 
 .score {
 	text-align: center;
 	padding-top:	0em;
 	padding-bottom:	3.0em;
+}
+
+.timer {
+	padding-top: 1.0em;
 }
 
 /* Footer */
