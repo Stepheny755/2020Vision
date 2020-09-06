@@ -58,7 +58,7 @@ function playSound() {
 }
 
 function clear() {
-  sound_obj.clear = clearInterval(play_sound);
+  sound_obj.clear = clearInterval(sound_obj.play_sound);
 }
 
 function pause(){
