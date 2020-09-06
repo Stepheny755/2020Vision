@@ -78,8 +78,8 @@ function stop(){
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  stop_recording();
   clear();
+  stop_recording();
 }
 
 function start_recording(){
