@@ -7,8 +7,9 @@ app = Flask(__name__)
 app.debug = True
 
 class track():
-    def __init__(self,audio_path):
+    def __init__(self,audio_path,sample_rate):
         self.value = 0
+        self.sr = sample_rate
         self.audio_path = audio_path
         self.ext = ".wav"
         self.create_path_with_check()
@@ -40,7 +41,8 @@ class track():
     def get_value(self):
         return self.value
 
-t = track("audio")
+default_sr = 48000
+t = track("audio",default_sr)
 
 #landing
 @app.route("/", methods=['POST', 'GET'])
@@ -50,7 +52,8 @@ def index():
 #re-init exam
 @app.route("/reinit",methods=['POST'])
 def init():
-    t = track("audio")
+    jsdata = request.form.to_dict()
+    t = track("audio",int(list(jsdata.keys())[0]))
     print("starting new exam...")
     return jsonify(t.get_value())
 
