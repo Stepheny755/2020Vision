@@ -9,7 +9,7 @@ app.debug = True
 #landing
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    return render_template('templates/layouts/index.html')
+    return render_template('layouts/index.html')
 
 #@app.route()
 
