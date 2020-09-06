@@ -134,6 +134,10 @@ img {
 	color: white;
 }
 
+.github-logo {
+	text-align: center;
+}
+
 @media only screen and (max-width: 750px) {
 	.heading {
 		padding-top: 2.15em;
