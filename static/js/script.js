@@ -56,11 +56,11 @@ function start(){
 
 function time(display){
   var sound_repeat = setInterval(function(){
-    if(time_ind!=0 && time_ind%5==0){
+    if(time_ind!=0 && time_ind%single_test_duration==0){
       next();
     }
-    display.textContent="00:0"+time_ind;
-
+    var display_time = time_ind%single_test_duration
+    display.textContent="00:0"+display_time;
     time_ind++;
   },1000);
   sound_obj.play_sound = sound_repeat;
@@ -80,6 +80,8 @@ function playSound() {
 
 function clear() {
   sound_obj.clear = clearInterval(sound_obj.play_sound);
+  sample_ind = 0;
+  time_ind = 0;
 }
 
 function pause(){
