@@ -4,8 +4,9 @@ var gum_stream;
 var recording;
 var input;
 
-var channels = 1;
-var sample_num = 0;
+var channels = 1; //number of audio channels
+var sample_num = 0; //index of start sample
+var single_test_duration = 5 //duration of character on screen, in seconds
 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext
@@ -38,7 +39,7 @@ function start(){
       });
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
-      var sound_repeat = setInterval(next, 5000);
+      var sound_repeat = setInterval(next, single_test_duration*1000);
       sound_obj.play_sound = sound_repeat;
       start_recording();
       console.log("start sample "+sample_num);
@@ -48,6 +49,11 @@ function start(){
       pause_button.disabled = true;
       stop_button.disabled = true;
   });
+}
+
+function time(){
+
+
 }
 
 function next(){
@@ -67,7 +73,7 @@ function clear() {
 }
 
 function pause(){
-  console.log("pause clicked. recording halted=",recording.recording);
+  console.log("recording paused=",recording.recording);
   if(recording.recording){
     recording.stop();
     pause_button.innerHTML="Resume";
@@ -99,7 +105,8 @@ function stop_recording(){
 
 function send_data(blob) {
   var url = URL.createObjectURL(blob);
-  console.log("sending data");
+  console.log("sending sample"+sample_num);
+  sample_num++;
   $.ajax({
     url:"/postmethod",
     method:"POST",
