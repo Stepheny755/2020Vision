@@ -59,7 +59,7 @@ function time(display){
     if(time_ind!=0 && time_ind%single_test_duration==0){
       next();
     }
-    var display_time = time_ind%single_test_duration
+    var display_time = single_test_duration-time_ind%single_test_duration
     display.textContent="00:0"+display_time;
     time_ind++;
   },1000);
