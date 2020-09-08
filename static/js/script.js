@@ -42,9 +42,8 @@ function start(){
       sound_obj.play_sound = sound_repeat;
       start_recording();
       console.log("start sample "+sample_num);
-
-
   }).catch(function(err) {
+      alert(err+"\n(hint: potential microphone not found)")
       start_button.disabled = false;
       pause_button.disabled = true;
       stop_button.disabled = true;
