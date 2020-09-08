@@ -5,7 +5,8 @@ var recording;
 var input;
 
 var channels = 1; //number of audio channels
-var sample_num = 0; //index of start sample
+var sample_ind = 0; //index of start sample
+var time_ind = 0;
 var single_test_duration = 5 //duration of character on screen, in seconds
 
 var AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -39,10 +40,12 @@ function start(){
       });
       gum_stream = stream;
       input = audioContext.createMediaStreamSource(stream);
-      var sound_repeat = setInterval(next, single_test_duration*1000);
-      sound_obj.play_sound = sound_repeat;
+
+      var display = document.querySelector('#time');
+      time(display);
+
       start_recording();
-      console.log("start sample "+sample_num);
+      console.log("start sample "+sample_ind);
   }).catch(function(err) {
       alert(err+"\n(hint: potential microphone not found)")
       start_button.disabled = false;
@@ -51,9 +54,16 @@ function start(){
   });
 }
 
-function time(){
+function time(display){
+  var sound_repeat = setInterval(function(){
+    if(time_ind!=0 && time_ind%5==0){
+      next();
+    }
+    display.textContent="00:0"+time_ind;
 
-
+    time_ind++;
+  },1000);
+  sound_obj.play_sound = sound_repeat;
 }
 
 function next(){
@@ -105,8 +115,8 @@ function stop_recording(){
 
 function send_data(blob) {
   var url = URL.createObjectURL(blob);
-  console.log("sending sample"+sample_num);
-  sample_num++;
+  console.log("sending sample"+sample_ind);
+  sample_ind++;
   $.ajax({
     url:"/postmethod",
     method:"POST",
