@@ -42,6 +42,7 @@ function start(){
       input = audioContext.createMediaStreamSource(stream);
 
       var display = document.querySelector('#time');
+      display.textContent = "00:0"+single_test_duration;
       time(display);
 
       start_recording();
@@ -78,7 +79,8 @@ function playSound() {
   audio.play();
 }
 
-function clear() {
+function clear(display) {
+  display.textContent="00:00"
   sound_obj.clear = clearInterval(sound_obj.play_sound);
   sample_ind = 0;
   time_ind = 0;
@@ -101,7 +103,8 @@ function stop(){
   stop_button.disabled = true;
   pause_button.disabled = true;
   pause_button.innerHTML = "Pause";
-  clear();
+  var display = document.querySelector('#time');
+  clear(display);
   stop_recording();
 }
 
